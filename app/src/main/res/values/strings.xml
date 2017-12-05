@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MapAnimation</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_directions_key">AIzaSyDo5ygfXwD_eF9SshNTExy5G7sImnQ1Bm0</string>
+</resources>
