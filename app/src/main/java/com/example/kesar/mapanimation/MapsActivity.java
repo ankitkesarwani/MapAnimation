@@ -100,9 +100,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        final LatLng sydney = new LatLng(25.5591419, 81.4892789);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        final LatLng myLoc = new LatLng(23.176494, 80.019659);
+        mMap.addMarker(new MarkerOptions().position(myLoc).title("My Location"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(myLoc));
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder()
                     .target(googleMap.getCameraPosition().target)
                     .zoom(17)
@@ -112,11 +112,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         String requestUrl = null;
         try{
-
             requestUrl = "https://maps.googleapis.com/maps/api/directions/json?" +
                     "mode=driving&"
                     + "transit_routing_preference=less_driving&"
-                    + "origin=" + sydney.latitude + "," + sydney.longitude + "&"
+                    + "origin=" + myLoc.latitude + "," + myLoc.longitude + "&"
                     + "destination=" + destination + "&"
                     + "key=" + getResources().getString(R.string.google_directions_key);
             Log.d("URL", requestUrl);
@@ -188,7 +187,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         polylineAnimator.start();
                         //Add car marker
-                        marker = mMap.addMarker(new MarkerOptions().position(sydney)
+                        marker = mMap.addMarker(new MarkerOptions().position(myLoc)
                                 .flat(true)
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.car)));
 
